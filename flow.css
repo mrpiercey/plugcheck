@@ -64,10 +64,10 @@
 .f-out.blend{background:#DFF5FD}
 .f-ends{grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:1em}
 
-/* explicit rows so UNPLUG can span the L, U and G rows */
+/* explicit rows */
 .r1{grid-row:1}.r2{grid-row:2}.r3{grid-row:3}.r4{grid-row:4}.r5{grid-row:5}.r6{grid-row:6}
 .r7{grid-row:7}.r8{grid-row:8}.r9{grid-row:9}.r10{grid-row:10}.r11{grid-row:11}
-.f-out.unplug{grid-row:5 / 10}
+.f-out.unplug{grid-row:5}
 
 @media (max-width:640px){
   .flow.responsive{grid-template-columns:minmax(0,1fr) 4.6em minmax(0,.62fr)}

@@ -33,8 +33,9 @@ p{margin:0}
 .bp{background:#4FD2FF}.bl{background:#A973DF}.bu{background:#2AD2C9}.bg{background:#FFBC0D}
 
 h2{font-size:16pt; margin-bottom:.09in}
-.flow{font-size:10.6pt}
-.flow .f-down{height:2em}
+.flow{font-size:10pt}
+.page > *{flex-shrink:0}
+.flow .f-down{height:1.9em}
 .flow .f-ends{gap:.14in}
 
 .foot{margin-top:auto; padding-top:.1in; font-size:7.3pt; color:#444; display:flex; justify-content:space-between; gap:.3in; align-items:flex-end}
@@ -45,7 +46,7 @@ h2{font-size:16pt; margin-bottom:.09in}
 .fill span.short{flex:0 0 1.7in}
 table{width:100%; border-collapse:collapse}
 th{font-size:7.4pt; letter-spacing:.09em; text-transform:uppercase; text-align:left; padding:0 .08in .04in; color:#004861}
-td{border-top:1pt solid #1D2A44; padding:.085in .08in; vertical-align:top}
+td{border-top:1pt solid #1D2A44; padding:.07in .08in; vertical-align:top}
 td.k{width:.5in; padding-left:0}
 td.k b{display:flex; align-items:center; justify-content:center; width:.4in; height:.4in; border-radius:50%; font-family:'Zilla Slab',serif; font-size:20pt; line-height:1}
 td.q{width:2.3in}
@@ -62,7 +63,7 @@ tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; backgr
 .call-row .box{width:.16in; height:.16in; margin:0}
 .call-row .line{flex:1; border-bottom:1pt solid #1D2A44; height:.22in; font-weight:500; font-size:8.5pt; display:flex; align-items:flex-end; padding-bottom:.02in}
 
-.moves{display:grid; grid-template-columns:repeat(3,1fr); gap:.12in; margin:.17in 0 .16in}
+.moves{display:grid; grid-template-columns:repeat(3,1fr); gap:.12in; margin:.13in 0 .12in}
 .moves > div{border:1.4pt solid #1D2A44; border-radius:.12in; padding:.1in .12in .1in}
 .moves h3{font-size:14pt; margin-bottom:.04in}
 .moves ul{margin:0; padding-left:.16in; font-size:8.4pt; line-height:1.33}
@@ -108,15 +109,17 @@ tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; backgr
     <div class="f-side r5"><em>Nothing new</em></div>
     <div class="f-down r6"><em>Something new, or speed and polish</em></div>
     <div class="f-q u r7"><b class="f-l">U</b><div><strong>Universal</strong><span>Can every student get to it and through it?</span></div></div>
-    <div class="f-side r7"><em>No</em></div>
-    <div class="f-down r8"><em>Yes, or yes with a backup</em></div>
+    <div class="f-side r7"><em>No, or sort of</em></div>
+        <div class="f-note r7">Plan a paper path or a backup, then keep going.</div>
+    <div class="f-down r8"></div>
     <div class="f-q g r9"><b class="f-l">G</b><div><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></div></div>
-    <div class="f-side r9"><em>No</em></div>
-    <div class="f-out unplug"><i>Any one of these</i><b>Unplug</b><small>Teach it off-screen today: paper, talk, hands-on. Unplugging is a teaching choice, not a step backward.</small></div>
+    <div class="f-side r9"><em>No, or sort of</em></div>
+        <div class="f-note r9">Batch the device time or run it as a station.</div>
+    <div class="f-out unplug"><i>Tech adds nothing</i><b>Unplug</b><small>Teach it off-screen. Also unplug if U and G are both a flat no.</small></div>
     <div class="f-down r10"></div>
     <div class="f-ends r11">
-      <div class="f-out plug"><i>Three strong yeses</i><b>Plug in</b><small>The tech adds something new, everyone can use it, and the minutes are worth it. Use it on purpose.</small></div>
-      <div class="f-out blend"><i>Any "sort of" answer</i><b>Blend</b><small>Speed and polish, a backup, or batching. Start off-screen, then plug in for the part where tech helps.</small></div>
+      <div class="f-out plug"><i>Three strong yeses</i><b>Plug in</b><small>The tech adds something new, everyone can use it, and the minutes are worth it.</small></div>
+      <div class="f-out blend"><i>Everything else</i><b>Blend</b><small>Most lessons land here. Start off-screen, then plug in for the part where the tech helps.</small></div>
     </div>
   </div>
 
@@ -132,7 +135,7 @@ tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; backgr
     <img src="edu_bug.png" alt="Edutopia">
     <div>
       <h1>Try it with your lesson</h1>
-      <div class="sub">Check one box in each row. Jot notes as you go.</div>
+      <div class="sub">Check one box in each row. Most lessons land on Blend.</div>
     </div>
   </div>
   <div class="ribbon"></div>
@@ -156,13 +159,13 @@ tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; backgr
     <tr>
       <td class="k"><b class="bu">U</b></td>
       <td class="q"><strong>Universal</strong><span>Can every student get to it and through it?</span></td>
-      <td class="c"><label><i class="box"></i>Yes, everyone</label><label><i class="box"></i>Yes, with a backup</label><label><i class="box"></i>No</label></td>
+      <td class="c"><label><i class="box"></i>Yes, everyone</label><label><i class="box"></i>Yes, with a backup</label><label><i class="box"></i>Not as planned</label></td>
       <td class="n"></td>
     </tr>
     <tr>
       <td class="k"><b class="bg">G</b></td>
       <td class="q"><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></td>
-      <td class="c"><label><i class="box"></i>Yes</label><label><i class="box"></i>Yes, if I batch it</label><label><i class="box"></i>No</label></td>
+      <td class="c"><label><i class="box"></i>Yes</label><label><i class="box"></i>Yes, if I batch it</label><label><i class="box"></i>Not as planned</label></td>
       <td class="n"></td>
     </tr>
     <tr class="call"><td colspan="4">

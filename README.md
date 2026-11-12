@@ -18,9 +18,9 @@ Inspired by Mary Mitchelson's Edutopia article, [Adapting Instruction as 1:1 Tec
 
 **How the call is made**
 
-- **Unplug** if Lift is "nothing new," Universal is "no," or Go time is "no."
-- **Plug in** if all three are a strong yes.
-- **Blend** for anything in between (speed or polish, yes with a backup, yes if batched).
+- **Plug in** if Lift, Universal, and Go time are all a strong yes.
+- **Unplug** if Lift is "nothing new," or if Universal and Go time are both a flat no.
+- **Blend** for everything else. Blend is the default and where most lessons land.
 
 Purpose never sends a lesson to Unplug. A "not yet" just asks the teacher to write the goal first.
 

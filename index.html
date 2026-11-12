@@ -221,15 +221,17 @@ footer{padding:26px 0 44px; font-size:13.5px; color:#3b4660}
         <div class="f-side r5"><em>Nothing new</em></div>
         <div class="f-down r6"><em>Something new, or speed and polish</em></div>
         <div class="f-q u r7"><b class="f-l">U</b><div><strong>Universal</strong><span>Can every student get to it and through it?</span></div></div>
-        <div class="f-side r7"><em>No</em></div>
-        <div class="f-down r8"><em>Yes, or yes with a backup</em></div>
+        <div class="f-side r7"><em>No, or sort of</em></div>
+        <div class="f-note r7">Plan a paper path or a backup, then keep going.</div>
+        <div class="f-down r8"></div>
         <div class="f-q g r9"><b class="f-l">G</b><div><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></div></div>
-        <div class="f-side r9"><em>No</em></div>
-        <div class="f-out unplug"><i>Any one of these</i><b>Unplug</b><small>Teach it off-screen today: paper, talk, hands-on.</small></div>
+        <div class="f-side r9"><em>No, or sort of</em></div>
+        <div class="f-note r9">Batch the device time or run it as a station.</div>
+        <div class="f-out unplug"><i>Tech adds nothing</i><b>Unplug</b><small>Teach it off-screen today. Also unplug if U and G are both a flat no.</small></div>
         <div class="f-down r10"></div>
         <div class="f-ends r11">
           <div class="f-out plug"><i>Three strong yeses</i><b>Plug in</b><small>The tech earns its place. Use it on purpose.</small></div>
-          <div class="f-out blend"><i>Any "sort of" answer</i><b>Blend</b><small>Start off-screen. Plug in for the part where tech helps.</small></div>
+          <div class="f-out blend"><i>Everything else</i><b>Blend</b><small>Most lessons land here. Start off-screen, then plug in for the part where tech helps.</small></div>
         </div>
       </div>
     </div>
@@ -305,7 +307,7 @@ const STEPS = [
     options:[
       {v:2, t:'Yes, everyone', d:'It all happens in class, supports are ready, and nothing depends on a device at home.'},
       {v:1, t:'Yes, with a backup', d:'I will have a print or offline path, or another way to show the learning.'},
-      {v:0, t:'No', d:'Some students would be shut out and I cannot cover the gap yet.'}
+      {v:0, t:'Not as planned', d:'Some students would be shut out the way the lesson stands now.'}
     ]},
   { k:'g', word:'Go time',
     q:'Is the learning worth the minutes it takes to get going?',
@@ -313,12 +315,12 @@ const STEPS = [
     options:[
       {v:2, t:'Yes', d:'Students will use the devices for most of the block, or our routine is fast.'},
       {v:1, t:'Yes, if I batch it', d:'Worth it as one longer stretch, one day a week, or one station in a rotation.'},
-      {v:0, t:'No', d:'A few minutes of use is not worth the setup.'}
+      {v:0, t:'Not as planned', d:'A few minutes of use is not worth the setup.'}
     ]}
 ];
 const VERDICTS = {
   plug:  {name:'Plug in', line:'The tech earns its place in this lesson. Use it on purpose.'},
-  blend: {name:'Blend',   line:'Start off-screen, then plug in for the part where the tech helps.'},
+  blend: {name:'Blend',   line:'Start off-screen, then plug in for the part where the tech helps. Most lessons land here.'},
   unplug:{name:'Unplug',  line:'This one will work better off-screen today.'}
 };
 const TIPS = {
@@ -335,6 +337,8 @@ const TIPS = {
   l0:'Try a gallery walk, centers, or a face-to-face discussion. Students get up, move, and talk.',
   l0b:'Have students do the thinking on paper. You will see more of their reasoning on the page.',
   u0:'Fix access first. Survey families about devices and internet at home, and ask who can set up accommodations on the shared laptops.',
+  u0c:'Keep the tech part in class and give every student a paper path, so no one is shut out.',
+  g0c:'Do today\'s part on paper. Save the device part for one longer stretch later in the week.',
   u0b:'Until then, run it on paper so no one is shut out.',
   g0:'Save the cart for a day when students will use the devices for most of the block.',
   off:'Go offline on purpose: the school garden, a visiting expert, reading stories to another class.'
@@ -347,7 +351,9 @@ const dot = v => `<i class="dot ${v===2?'full':v===1?'half':''}" aria-hidden="tr
 
 function verdict(){
   const {l,u,g} = state.a;
-  if(l===0 || u===0 || g===0) return 'unplug';
+  // Blend is the default. Unplug only when the tech adds nothing,
+  // or when access and setup time are both a flat no.
+  if(l===0 || (u===0 && g===0)) return 'unplug';
   if(l===2 && u===2 && g===2) return 'plug';
   return 'blend';
 }
@@ -357,8 +363,10 @@ function tips(v){
   if(v==='blend'){
     if(l===1) out.push(TIPS.l1);
     if(u===1) out.push(TIPS.u1, TIPS.u1b);
+    if(u===0) out.push(TIPS.u0c, TIPS.u0);
     if(g===1) out.push(TIPS.g1);
-    out.push(TIPS.plug[0]);
+    if(g===0) out.push(TIPS.g0c);
+    if(out.length < 3) out.push(TIPS.plug[0]);
     return out;
   }
   if(l===0) out.push(TIPS.l0, TIPS.l0b);

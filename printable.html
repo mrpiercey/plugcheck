@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The PLUG Check: 2-page guide</title>
+<link rel="icon" type="image/png" href="edu_bug.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Zilla+Slab:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="flow.css">
+<style>
+/* Source for PLUG-Check.pdf. US Letter, 2 pages. See README for how to rebuild the PDF. */
+@page{size:8.5in 11in; margin:0}
+*{box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+html,body{margin:0; padding:0}
+body{font-family:'Poppins',Helvetica,Arial,sans-serif; color:#1D2A44; font-size:9.6pt; line-height:1.4; background:#888}
+.page{width:8.5in; height:11in; padding:.45in .55in .4in; background:#fff; position:relative; overflow:hidden; page-break-after:always; display:flex; flex-direction:column; margin:0 auto}
+@media screen{.page{margin:12px auto}}
+h1,h2,h3{font-family:'Zilla Slab',Rockwell,Georgia,serif; font-weight:700; margin:0; line-height:1.05}
+p{margin:0}
+
+.head{display:flex; align-items:center; gap:.16in}
+.head img{width:.62in; height:.62in; flex:none}
+.head h1{font-size:33pt; color:#0094C7}
+.head .sub{font-size:11.5pt; font-weight:500; margin-top:.02in}
+.head.small h1{font-size:25pt}
+.ribbon{height:.07in; margin:.13in 0 .14in; background:linear-gradient(90deg,#E75CAE 0 14.3%,#A973DF 0 28.6%,#0094C7 0 42.9%,#2AD2C9 0 57.2%,#6FB300 0 71.5%,#FFBC0D 0 85.8%,#FF9B0D 0)}
+.intro{font-size:10.4pt; max-width:7.1in}
+
+.letters{display:grid; grid-template-columns:repeat(4,1fr); gap:.12in; margin:.15in 0 .17in}
+.letters div{border-radius:.12in; padding:.1in .11in .11in; background:#FFF7ED}
+.letters b{display:flex; align-items:center; justify-content:center; width:.42in; height:.42in; border-radius:50%; font-family:'Zilla Slab',serif; font-size:21pt; line-height:1}
+.letters h3{font-size:14.5pt; margin:.05in 0 .02in}
+.letters p{font-size:8.7pt; line-height:1.32}
+.bp{background:#4FD2FF}.bl{background:#A973DF}.bu{background:#2AD2C9}.bg{background:#FFBC0D}
+
+h2{font-size:16pt; margin-bottom:.09in}
+.flow{font-size:10.6pt}
+.flow .f-down{height:2em}
+.flow .f-ends{gap:.14in}
+
+.foot{margin-top:auto; padding-top:.1in; font-size:7.3pt; color:#444; display:flex; justify-content:space-between; gap:.3in; align-items:flex-end}
+
+/* page 2 */
+.fill{display:flex; gap:.25in; font-weight:600; font-size:9.6pt; margin-bottom:.12in}
+.fill span{flex:1; border-bottom:1pt solid #1D2A44; padding-bottom:.02in; height:.26in; display:flex; align-items:flex-end}
+.fill span.short{flex:0 0 1.7in}
+table{width:100%; border-collapse:collapse}
+th{font-size:7.4pt; letter-spacing:.09em; text-transform:uppercase; text-align:left; padding:0 .08in .04in; color:#004861}
+td{border-top:1pt solid #1D2A44; padding:.085in .08in; vertical-align:top}
+td.k{width:.5in; padding-left:0}
+td.k b{display:flex; align-items:center; justify-content:center; width:.4in; height:.4in; border-radius:50%; font-family:'Zilla Slab',serif; font-size:20pt; line-height:1}
+td.q{width:2.3in}
+td.q strong{display:block; font-size:10.4pt}
+td.q span{font-size:8.5pt; line-height:1.3; display:block}
+td.c{width:2.05in; font-size:8.7pt; line-height:1.3}
+td.c label{display:flex; gap:.06in; align-items:flex-start; margin-bottom:.035in}
+.box{flex:none; width:.125in; height:.125in; border:1pt solid #1D2A44; border-radius:.02in; margin-top:.02in; background:#fff}
+td.n{border-left:1pt dashed #9aa3b5}
+tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; background:#FFF7ED; padding-top:.1in; padding-bottom:.1in}
+.call-row{display:flex; align-items:center; gap:.2in; font-weight:600; font-size:10.2pt}
+.call-row h3{font-size:15pt; margin-right:.05in}
+.call-row label{display:flex; align-items:center; gap:.07in}
+.call-row .box{width:.16in; height:.16in; margin:0}
+.call-row .line{flex:1; border-bottom:1pt solid #1D2A44; height:.22in; font-weight:500; font-size:8.5pt; display:flex; align-items:flex-end; padding-bottom:.02in}
+
+.moves{display:grid; grid-template-columns:repeat(3,1fr); gap:.12in; margin:.17in 0 .16in}
+.moves > div{border:1.4pt solid #1D2A44; border-radius:.12in; padding:.1in .12in .1in}
+.moves h3{font-size:14pt; margin-bottom:.04in}
+.moves ul{margin:0; padding-left:.16in; font-size:8.4pt; line-height:1.33}
+.moves li{margin-bottom:.035in}
+.moves .add{font-size:7.6pt; font-weight:600; color:#004861; margin-top:.05in; border-bottom:1pt solid #9aa3b5; padding-bottom:.2in}
+.m-plug{background:#EEF9CB}.m-blend{background:#DFF5FD}.m-unplug{background:#EEE3F9}
+
+.why{display:grid; grid-template-columns:1fr 1fr; gap:.08in .22in; font-size:8pt; line-height:1.36}
+.why p b{font-family:'Zilla Slab',serif; font-size:10.5pt}
+.refs{font-size:6.5pt; line-height:1.36; color:#333; margin-top:.1in; padding-top:.07in; border-top:1pt solid #9aa3b5}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="head">
+    <img src="edu_bug.png" alt="Edutopia">
+    <div>
+      <h1>The PLUG Check</h1>
+      <div class="sub">Plug in, blend, or unplug? Four questions to ask before the devices come out.</div>
+    </div>
+  </div>
+  <div class="ribbon"></div>
+  <p class="intro">When laptops live on a cart instead of in backpacks, every use is a choice. Run a lesson through <strong style="white-space:nowrap">P-L-U-G</strong> to decide when the tech is worth it and when paper, talk, or hands-on work will teach it better.</p>
+
+  <div class="letters">
+    <div><b class="bp">P</b><h3>Purpose</h3><p>Start with the learning goal, not the tool. If you can only describe the lesson by naming an app, the goal is not clear yet.</p></div>
+    <div><b class="bl">L</b><h3>Lift</h3><p>Ask what the tech adds. Does it let students do something new, or only make the same task faster or neater?</p></div>
+    <div><b class="bu">U</b><h3>Universal</h3><p>Check that everyone can get to it: absent students, students with no device at home, students who need supports.</p></div>
+    <div><b class="bg">G</b><h3>Go time</h3><p>Count the setup minutes. Passing out, logging in, and putting back can take 10 minutes of a class.</p></div>
+  </div>
+
+  <h2>Follow the flowchart</h2>
+  <div class="flow">
+    <div class="f-start r1">Planning a lesson? Start here.</div>
+    <div class="f-down r2"></div>
+    <div class="f-q p r3"><b class="f-l">P</b><div><strong>Purpose</strong><span>Can you name the learning goal without naming a tool?</span></div></div>
+    <div class="f-side r3"><em>Not yet</em></div>
+    <div class="f-note r3">Write the goal first: "Students will be able to..." Then keep going.</div>
+    <div class="f-down r4"><em>Yes</em></div>
+    <div class="f-q l r5"><b class="f-l">L</b><div><strong>Lift</strong><span>What does the tech add to the learning?</span></div></div>
+    <div class="f-side r5"><em>Nothing new</em></div>
+    <div class="f-down r6"><em>Something new, or speed and polish</em></div>
+    <div class="f-q u r7"><b class="f-l">U</b><div><strong>Universal</strong><span>Can every student get to it and through it?</span></div></div>
+    <div class="f-side r7"><em>No</em></div>
+    <div class="f-down r8"><em>Yes, or yes with a backup</em></div>
+    <div class="f-q g r9"><b class="f-l">G</b><div><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></div></div>
+    <div class="f-side r9"><em>No</em></div>
+    <div class="f-out unplug"><i>Any one of these</i><b>Unplug</b><small>Teach it off-screen today: paper, talk, hands-on. Unplugging is a teaching choice, not a step backward.</small></div>
+    <div class="f-down r10"></div>
+    <div class="f-ends r11">
+      <div class="f-out plug"><i>Three strong yeses</i><b>Plug in</b><small>The tech adds something new, everyone can use it, and the minutes are worth it. Use it on purpose.</small></div>
+      <div class="f-out blend"><i>Any "sort of" answer</i><b>Blend</b><small>Speed and polish, a backup, or batching. Start off-screen, then plug in for the part where tech helps.</small></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Inspired by Mary Mitchelson, "Adapting Instruction as 1:1 Technology Access Shrinks," Edutopia, November 10, 2026.</span>
+    <span>Page 1 of 2</span>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="head small">
+    <img src="edu_bug.png" alt="Edutopia">
+    <div>
+      <h1>Try it with your lesson</h1>
+      <div class="sub">Check one box in each row. Jot notes as you go.</div>
+    </div>
+  </div>
+  <div class="ribbon"></div>
+
+  <div class="fill"><span>Lesson or activity:</span><span class="short">Date:</span></div>
+
+  <table>
+    <tr><th></th><th>Ask yourself</th><th>Check one</th><th>My notes</th></tr>
+    <tr>
+      <td class="k"><b class="bp">P</b></td>
+      <td class="q"><strong>Purpose</strong><span>Can I name the learning goal without naming a tool?</span></td>
+      <td class="c"><label><i class="box"></i>Yes, the goal is clear</label><label><i class="box"></i>Not yet. Write it in the notes first</label></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td class="k"><b class="bl">L</b></td>
+      <td class="q"><strong>Lift</strong><span>What does the tech add to the learning?</span></td>
+      <td class="c"><label><i class="box"></i>Something new</label><label><i class="box"></i>Speed or polish</label><label><i class="box"></i>Nothing new</label></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td class="k"><b class="bu">U</b></td>
+      <td class="q"><strong>Universal</strong><span>Can every student get to it and through it?</span></td>
+      <td class="c"><label><i class="box"></i>Yes, everyone</label><label><i class="box"></i>Yes, with a backup</label><label><i class="box"></i>No</label></td>
+      <td class="n"></td>
+    </tr>
+    <tr>
+      <td class="k"><b class="bg">G</b></td>
+      <td class="q"><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></td>
+      <td class="c"><label><i class="box"></i>Yes</label><label><i class="box"></i>Yes, if I batch it</label><label><i class="box"></i>No</label></td>
+      <td class="n"></td>
+    </tr>
+    <tr class="call"><td colspan="4">
+      <div class="call-row"><h3>My call:</h3><label><i class="box"></i>Plug in</label><label><i class="box"></i>Blend</label><label><i class="box"></i>Unplug</label><span class="line">One thing I will change:</span></div>
+    </td></tr>
+  </table>
+
+  <div class="moves">
+    <div class="m-plug"><h3>Plug in on purpose</h3><ul>
+      <li>Tell students why the devices are out today.</li>
+      <li>Teach the skill, not just the app: formatting a paper, finding a saved file, using a spreadsheet.</li>
+      <li>Think past laptops: robots, drones, microscopes.</li>
+    </ul><div class="add">Add your own:</div></div>
+    <div class="m-blend"><h3>Blend</h3><ul>
+      <li>Plan on paper, publish on screen.</li>
+      <li>Pair each online task with a print path for students who are out.</li>
+      <li>Batch device time, or run laptops as one station.</li>
+      <li>Offer choices: poster, model, interview, slides.</li>
+    </ul><div class="add">Add your own:</div></div>
+    <div class="m-unplug"><h3>Unplug well</h3><ul>
+      <li>Gallery walks, centers, and exhibits that get students moving and talking.</li>
+      <li>Draft by hand so thinking shows on the page.</li>
+      <li>Go outside, invite an expert, or read to another class.</li>
+    </ul><div class="add">Add your own:</div></div>
+  </div>
+
+  <h2>Why these four questions</h2>
+  <div class="why">
+    <p><b>Purpose.</b> Backward design starts with what students should understand, then picks the activity (Wiggins &amp; McTighe, 2005). TPACK adds that good tech use depends on its fit with the content and the teaching (Mishra &amp; Koehler, 2006).</p>
+    <p><b>Lift.</b> SAMR, PICRAT, and Triple E all separate tech that replaces a task from tech that changes what students can do. In PISA data, moderate school computer use went with better results than rare use, and very frequent use with worse (OECD, 2015). For reading, a meta-analysis found a small comprehension edge for paper (Delgado et al., 2018).</p>
+    <p><b>Universal.</b> Universal Design for Learning calls for more than one way in and more than one way to show learning (CAST, 2024). 17% of U.S. teens said they often or sometimes could not finish homework for lack of a reliable computer or internet (Pew Research Center, 2018).</p>
+    <p><b>Go time.</b> Laptop-cart transitions can cost up to 10 minutes of a class (Mitchelson, 2026). Used daily, that is close to one class period a week, so save the cart for work that needs most of the block.</p>
+  </div>
+  <div class="refs">
+    <strong>Sources:</strong> Anderson &amp; Perrin (2018), <em>Nearly one-in-five teens can't always finish their homework because of the digital divide</em>, Pew Research Center · CAST (2024), <em>UDL Guidelines 3.0</em> · Delgado, Vargas, Ackerman &amp; Salmerón (2018), <em>Educational Research Review, 25</em> · Kimmons, Graham &amp; West (2020), <em>CITE Journal, 20</em>(1) · Kolb (2017), <em>Learning First, Technology Second</em> · Mishra &amp; Koehler (2006), <em>Teachers College Record, 108</em>(6) · Mitchelson (2026), "Adapting Instruction as 1:1 Technology Access Shrinks," <em>Edutopia</em> · OECD (2015), <em>Students, Computers and Learning</em> · Puentedura (2006), SAMR · Wiggins &amp; McTighe (2005), <em>Understanding by Design</em>. PLUG is a planning habit built on this research; it has not been tested as a program on its own.
+  </div>
+
+  <div class="foot">
+    <span>Try the interactive version: mrpiercey.github.io/plugcheck</span>
+    <span>Page 2 of 2</span>
+  </div>
+</div>
+</body>
+</html>

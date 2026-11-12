@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The PLUG Check</title>
+<meta name="description" content="Plug in, blend, or unplug? Four quick questions to help teachers decide when classroom tech is worth it.">
+<link rel="icon" type="image/png" href="edu_bug.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Zilla+Slab:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="flow.css">
+<style>
+/* Edutopia design system, shared with Class Jobs Maker and Authentic or AI?
+   Poppins stands in for Gotham, Zilla Slab for Museo Slab.
+   Electric Orange is saved for the edu bug and one primary button per screen. */
+:root{
+  --edu-orange:#FF4C00; --edu-tangerine:#FF9B0D; --edu-sunshine:#FFBC0D;
+  --edu-midnight:#1D2A44; --edu-space:#004861; --edu-pacific:#0094C7; --edu-tech:#4FD2FF;
+  --edu-purple:#532681; --edu-light-purple:#A973DF; --edu-pink:#E75CAE;
+  --edu-teal:#00AFAB; --edu-light-teal:#2AD2C9; --edu-green:#6FB300;
+  --edu-light-grey:#666666; --edu-cream:#FFF7ED;
+  --tint-blue:#DFF5FD; --tint-teal:#D9F5F3; --tint-purple:#EEE3F9; --tint-sun:#FFEFC2; --tint-green:#EEF9CB;
+  --line:#E9E1D3;
+  --font-ui:'Poppins',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  --font-slab:'Zilla Slab',Rockwell,Georgia,serif;
+  --shadow-card:0 4px 20px rgba(29,42,68,.12);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:84px}
+body{margin:0; font-family:var(--font-ui); background:var(--edu-cream); color:var(--edu-midnight); font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased}
+button{font-family:inherit; cursor:pointer; color:inherit}
+input{font-family:inherit; font-size:16px; color:var(--edu-midnight)}
+a{color:var(--edu-space)}
+:focus-visible{outline:3px solid var(--edu-pacific); outline-offset:2px}
+[tabindex="-1"]:focus{outline:none}
+h1,h2,h3{font-family:var(--font-slab); font-weight:700; line-height:1.08; margin:0; text-wrap:balance}
+.wrap{max-width:1040px; margin:0 auto; padding:0 20px}
+
+/* app bar */
+.bar{position:sticky; top:0; z-index:10; background:#fff}
+.bar-in{display:flex; align-items:center; gap:12px; height:64px}
+.bug{width:40px; height:40px; flex:none}
+.brand{font-family:var(--font-slab); font-weight:700; font-size:22px; line-height:1.1; margin-right:auto; text-decoration:none; color:var(--edu-midnight)}
+.brand small{display:block; font-family:var(--font-ui); font-weight:500; font-size:11.5px; color:var(--edu-light-grey)}
+.nav a{font-weight:600; font-size:14.5px; text-decoration:none; padding:8px 12px; border-radius:99px; color:var(--edu-midnight)}
+.nav a:hover{background:var(--edu-cream)}
+.nav a.pill{border:2px solid var(--edu-midnight)}
+.ribbon{height:6px; background:linear-gradient(90deg,#E75CAE 0 14.3%,#A973DF 0 28.6%,#0094C7 0 42.9%,#2AD2C9 0 57.2%,#6FB300 0 71.5%,#FFBC0D 0 85.8%,#FF9B0D 0)}
+
+/* hero */
+.hero{position:relative; overflow:hidden; padding:54px 0 30px}
+.hero::before,.hero::after{content:""; position:absolute; border-radius:50%; z-index:0}
+.hero::before{width:300px; height:300px; right:-110px; top:-120px; background:var(--edu-tech)}
+.hero::after{width:170px; height:170px; left:-80px; bottom:-90px; background:var(--edu-sunshine)}
+.hero .wrap{position:relative; z-index:1}
+.kicker{font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--edu-space)}
+.hero h1{font-size:clamp(42px,7vw,78px); color:var(--edu-pacific); margin:8px 0 14px; max-width:13ch}
+.hero p.lead{font-size:clamp(17px,2vw,20px); max-width:56ch; margin:0 0 26px}
+.letters{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; list-style:none; padding:0; margin:0}
+.letters li{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow-card); padding:16px 16px 18px}
+.badge{width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-slab); font-weight:700; font-size:34px; line-height:1; color:var(--edu-midnight); flex:none}
+.b-p{background:var(--edu-tech)} .b-l{background:var(--edu-light-purple)} .b-u{background:var(--edu-light-teal)} .b-g{background:var(--edu-sunshine)}
+.letters h3{font-size:24px; margin:10px 0 4px}
+.letters p{margin:0; font-size:14.5px; line-height:1.4}
+
+section{padding:34px 0}
+.sec-head{margin-bottom:18px}
+.sec-head h2{font-size:clamp(30px,4vw,42px)}
+.sec-head p{margin:6px 0 0; max-width:62ch}
+
+/* the checker */
+.tool{background:#fff; border-radius:24px; box-shadow:var(--shadow-card); padding:26px}
+.rail{display:flex; gap:8px; list-style:none; padding:0; margin:0 0 22px; flex-wrap:wrap}
+.rail li{display:flex; align-items:center; gap:8px; padding:5px 14px 5px 5px; border-radius:99px; background:var(--edu-cream); font-weight:600; font-size:14px; color:var(--edu-light-grey)}
+.rail li .badge{width:30px; height:30px; font-size:19px; background:#fff; color:var(--edu-light-grey)}
+.rail li.done{color:var(--edu-midnight)}
+.rail li.done .badge,.rail li.now .badge{color:var(--edu-midnight)}
+.rail li.now{background:var(--edu-midnight); color:#fff}
+.rail li[data-k=p].done .badge,.rail li[data-k=p].now .badge{background:var(--edu-tech)}
+.rail li[data-k=l].done .badge,.rail li[data-k=l].now .badge{background:var(--edu-light-purple)}
+.rail li[data-k=u].done .badge,.rail li[data-k=u].now .badge{background:var(--edu-light-teal)}
+.rail li[data-k=g].done .badge,.rail li[data-k=g].now .badge{background:var(--edu-sunshine)}
+.rail li span{white-space:nowrap}
+
+.step-top{display:flex; align-items:center; gap:14px; margin-bottom:6px}
+.step-top .word{font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--edu-space)}
+.step h3{font-size:clamp(26px,3.4vw,36px); margin:6px 0 8px}
+.step .help{margin:0 0 18px; max-width:64ch}
+.field{display:block; margin:0 0 18px}
+.field span{display:block; font-weight:600; font-size:14px; margin-bottom:6px}
+.field input{width:100%; max-width:560px; padding:12px 16px; border:2px solid var(--line); border-radius:14px; background:#fff}
+.field input:focus{border-color:var(--edu-pacific); outline:none}
+.choices{display:grid; gap:12px}
+.choice{display:flex; gap:14px; align-items:flex-start; text-align:left; width:100%; background:#fff; border:2px solid var(--line); border-radius:16px; padding:14px 18px; transition:border-color .15s, transform .15s}
+.choice:hover{border-color:var(--edu-midnight); transform:translateY(-1px)}
+.choice b{display:block; font-size:17px}
+.choice span{display:block; font-size:14.5px; line-height:1.4; color:#3b4660}
+.dot{flex:none; width:22px; height:22px; border-radius:50%; border:2.5px solid var(--edu-midnight); margin-top:3px; background:#fff}
+.dot.full{background:var(--edu-midnight)}
+.dot.half{background:linear-gradient(90deg,var(--edu-midnight) 50%,#fff 50%)}
+.row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:20px}
+.btn{font-weight:700; font-size:15.5px; padding:12px 22px; border-radius:99px; border:2px solid var(--edu-midnight); background:#fff; text-decoration:none; color:var(--edu-midnight); display:inline-block}
+.btn:hover{background:var(--edu-cream)}
+.btn.primary{background:var(--edu-orange); border-color:var(--edu-orange); color:#fff}
+.btn.primary:hover{background:#e64400}
+.btn.dark{background:var(--edu-midnight); color:#fff}
+.btn.link{border-color:transparent; padding-left:6px; padding-right:6px; text-decoration:underline; font-weight:600}
+.nudge{background:var(--tint-sun); border-radius:16px; padding:16px 18px; margin-top:14px}
+.nudge p{margin:0 0 12px}
+
+/* result */
+.verdict{border-radius:20px; padding:22px 24px; border:3px solid var(--edu-midnight)}
+.verdict.plug{background:var(--tint-green)} .verdict.blend{background:var(--tint-blue)} .verdict.unplug{background:var(--tint-purple)}
+.verdict .for{font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--edu-space)}
+.verdict h3{font-size:clamp(44px,8vw,72px); margin:2px 0 6px}
+.verdict p{margin:0; font-size:18px; font-weight:500; max-width:54ch}
+.cols{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:22px}
+.cols h4{font-family:var(--font-slab); font-size:22px; margin:0 0 10px}
+.path{list-style:none; padding:0; margin:0; display:grid; gap:10px}
+.path li{display:flex; gap:12px; align-items:flex-start}
+.path .badge{width:34px; height:34px; font-size:22px}
+.path b{display:block; font-size:15px}
+.path span{display:block; font-size:14px; line-height:1.4; color:#3b4660}
+.tips{margin:0; padding-left:20px; display:grid; gap:9px}
+.tips li{font-size:15px; line-height:1.45}
+
+/* flowchart + research */
+.flow-card{background:#fff; border-radius:24px; box-shadow:var(--shadow-card); padding:26px; font-size:clamp(11.5px,1.55vw,16px)}
+.research{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.research article{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow-card); padding:20px}
+.research .top{display:flex; align-items:center; gap:12px; margin-bottom:8px}
+.research h3{font-size:24px}
+.research p{margin:0; font-size:15px}
+.refs{font-size:13px; line-height:1.5; color:#3b4660; margin-top:22px}
+.refs p{margin:0 0 6px; padding-left:1.4em; text-indent:-1.4em}
+.caution{background:var(--tint-sun); border-radius:var(--radius); padding:14px 18px; font-size:14.5px; margin-top:16px}
+footer{padding:26px 0 44px; font-size:13.5px; color:#3b4660}
+
+@media (max-width:760px){
+  .letters{grid-template-columns:1fr 1fr}
+  .cols,.research{grid-template-columns:1fr}
+  .nav a:not(.pill){display:none}
+  .tool,.flow-card{padding:18px}
+  .brand small{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .choice{transition:none}}
+
+/* Printing from the app prints just the finished check */
+@media print{
+  body{background:#fff}
+  .bar,.hero,#flow,#research,footer,.sec-head,.no-print,.rail{display:none !important}
+  section{padding:0}
+  .tool{box-shadow:none; padding:0}
+  .verdict,.badge{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .print-only{display:block !important}
+}
+.print-only{display:none; font-size:12px; margin-top:24px; color:#3b4660}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <img class="bug" src="edu_bug.png" alt="Edutopia">
+    <a class="brand" href="#top">The PLUG Check<small>A planning tool for teachers</small></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#check">Check a lesson</a>
+      <a href="#flow">Flowchart</a>
+      <a href="#research">Research</a>
+      <a class="pill" href="PLUG-Check.pdf">2-page PDF</a>
+    </nav>
+  </div>
+  <div class="ribbon"></div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">Before the devices come out</div>
+    <h1>Plug in, blend, or unplug?</h1>
+    <p class="lead">When laptops live on a cart instead of in backpacks, every use is a choice. Run a lesson through four quick questions to decide when the tech is worth it.</p>
+    <ul class="letters">
+      <li><div class="badge b-p">P</div><h3>Purpose</h3><p>Can you name the learning goal without naming a tool?</p></li>
+      <li><div class="badge b-l">L</div><h3>Lift</h3><p>What does the tech add that paper and talk can't?</p></li>
+      <li><div class="badge b-u">U</div><h3>Universal</h3><p>Can every student get to it and through it?</p></li>
+      <li><div class="badge b-g">G</div><h3>Go time</h3><p>Is the learning worth the minutes it takes to get going?</p></li>
+    </ul>
+  </div>
+</div>
+
+<section id="check">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Check a lesson</h2>
+      <p>Think of one lesson or activity you are planning. It takes about a minute.</p>
+    </div>
+    <div class="tool">
+      <ol class="rail" id="rail" aria-label="Progress"></ol>
+      <div id="stage" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The whole flowchart</h2>
+      <p>The same four questions on one page. It is also page 1 of the <a href="PLUG-Check.pdf">printable guide</a>.</p>
+    </div>
+    <div class="flow-card">
+      <div class="flow responsive">
+        <div class="f-start r1">Planning a lesson? Start here.</div>
+        <div class="f-down r2"></div>
+        <div class="f-q p r3"><b class="f-l">P</b><div><strong>Purpose</strong><span>Can you name the learning goal without naming a tool?</span></div></div>
+        <div class="f-side r3"><em>Not yet</em></div>
+        <div class="f-note r3">Write the goal first. Then keep going.</div>
+        <div class="f-down r4"><em>Yes</em></div>
+        <div class="f-q l r5"><b class="f-l">L</b><div><strong>Lift</strong><span>What does the tech add to the learning?</span></div></div>
+        <div class="f-side r5"><em>Nothing new</em></div>
+        <div class="f-down r6"><em>Something new, or speed and polish</em></div>
+        <div class="f-q u r7"><b class="f-l">U</b><div><strong>Universal</strong><span>Can every student get to it and through it?</span></div></div>
+        <div class="f-side r7"><em>No</em></div>
+        <div class="f-down r8"><em>Yes, or yes with a backup</em></div>
+        <div class="f-q g r9"><b class="f-l">G</b><div><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></div></div>
+        <div class="f-side r9"><em>No</em></div>
+        <div class="f-out unplug"><i>Any one of these</i><b>Unplug</b><small>Teach it off-screen today: paper, talk, hands-on.</small></div>
+        <div class="f-down r10"></div>
+        <div class="f-ends r11">
+          <div class="f-out plug"><i>Three strong yeses</i><b>Plug in</b><small>The tech earns its place. Use it on purpose.</small></div>
+          <div class="f-out blend"><i>Any "sort of" answer</i><b>Blend</b><small>Start off-screen. Plug in for the part where tech helps.</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Why these four questions</h2>
+      <p>Each letter comes from a problem teachers describe when one-to-one devices shrink, and each is backed by research on how technology helps learning.</p>
+    </div>
+    <div class="research">
+      <article>
+        <div class="top"><div class="badge b-p">P</div><h3>Purpose</h3></div>
+        <p>Backward design starts with what students should understand, then picks the activity (Wiggins &amp; McTighe, 2005). The TPACK framework makes the same point about tools: good tech use depends on its fit with the content and the teaching, never on the tool alone (Mishra &amp; Koehler, 2006).</p>
+      </article>
+      <article>
+        <div class="top"><div class="badge b-l">L</div><h3>Lift</h3></div>
+        <p>SAMR (Puentedura, 2006), PICRAT (Kimmons et al., 2020), and Triple E (Kolb, 2017) all separate tech that replaces a task from tech that changes what students can do. More is not better: in OECD's analysis of PISA data, moderate school computer use went with somewhat better results than rare use, and very frequent use went with worse (OECD, 2015). For reading, a meta-analysis of 54 studies found a small comprehension edge for paper (Delgado et al., 2018).</p>
+      </article>
+      <article>
+        <div class="top"><div class="badge b-u">U</div><h3>Universal</h3></div>
+        <p>Universal Design for Learning asks teachers to plan more than one way in and more than one way to show learning (CAST, 2024). Home access cannot be assumed: 17% of U.S. teens said they often or sometimes could not finish homework because they lacked a reliable computer or internet connection (Anderson &amp; Perrin, 2018). In Mitchelson's classroom survey, fewer than a third of sixth graders had a laptop at home.</p>
+      </article>
+      <article>
+        <div class="top"><div class="badge b-g">G</div><h3>Go time</h3></div>
+        <p>Passing out laptops, logging in, swapping dead devices, and plugging everything back in can cost up to 10 minutes of a class period (Mitchelson, 2026). At that rate, using the cart every day costs close to one full class period a week. What students do with the remaining minutes matters too: learning deepens as tasks move from passive to active to constructive to interactive (Chi &amp; Wylie, 2014).</p>
+      </article>
+    </div>
+    <div class="caution"><strong>A note on the evidence.</strong> The OECD and Pew findings are survey patterns, and the paper-versus-screen edge is small. PLUG is a planning habit built on that research. It has not been tested as a program on its own.</div>
+    <div class="refs">
+      <p>Anderson, M., &amp; Perrin, A. (2018). <em>Nearly one-in-five teens can't always finish their homework because of the digital divide.</em> Pew Research Center.</p>
+      <p>CAST. (2024). <em>Universal Design for Learning Guidelines version 3.0.</em></p>
+      <p>Chi, M. T. H., &amp; Wylie, R. (2014). The ICAP framework: Linking cognitive engagement to active learning outcomes. <em>Educational Psychologist, 49</em>(4), 219–243.</p>
+      <p>Delgado, P., Vargas, C., Ackerman, R., &amp; Salmerón, L. (2018). Don't throw away your printed books: A meta-analysis on the effects of reading media on reading comprehension. <em>Educational Research Review, 25</em>, 23–38.</p>
+      <p>Kimmons, R., Graham, C. R., &amp; West, R. E. (2020). The PICRAT model for technology integration in teacher preparation. <em>Contemporary Issues in Technology and Teacher Education, 20</em>(1).</p>
+      <p>Kolb, L. (2017). <em>Learning first, technology second.</em> ISTE.</p>
+      <p>Mishra, P., &amp; Koehler, M. J. (2006). Technological pedagogical content knowledge: A framework for teacher knowledge. <em>Teachers College Record, 108</em>(6), 1017–1054.</p>
+      <p>Mitchelson, M. (2026, November 10). <a href="https://www.edutopia.org/article/adapting-less-tech-access-schools">Adapting instruction as 1:1 technology access shrinks.</a> <em>Edutopia.</em></p>
+      <p>OECD. (2015). <em>Students, computers and learning: Making the connection.</em> OECD Publishing.</p>
+      <p>Puentedura, R. R. (2006). <em>Transformation, technology, and education.</em></p>
+      <p>Wiggins, G., &amp; McTighe, J. (2005). <em>Understanding by design</em> (2nd ed.). ASCD.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">Inspired by Mary Mitchelson's Edutopia article "Adapting Instruction as 1:1 Technology Access Shrinks." Nothing you type here leaves your browser.</div>
+</footer>
+
+<script>
+const STEPS = [
+  { k:'p', word:'Purpose',
+    q:'Can you name the learning goal without naming a tool?',
+    help:'"Students will compare two characters\' points of view" is a goal. "Students will make a slideshow" is a tool.',
+    options:[
+      {v:2, t:'Yes, the goal is clear', d:'I can say what students will know or be able to do.'},
+      {v:0, t:'Not yet', d:'Right now the plan starts with the app or the device.'}
+    ]},
+  { k:'l', word:'Lift',
+    q:'What does the tech add to the learning?',
+    help:'Compare it with the best paper, talk, or hands-on version of the same lesson.',
+    options:[
+      {v:2, t:'Something new', d:'Students create, model, collaborate, get feedback, or use a support they could not get another way.'},
+      {v:1, t:'Speed or polish', d:'Same task, just faster or neater: typing a final draft, looking something up, finding an image.'},
+      {v:0, t:'Nothing new', d:'Paper, talk, or hands-on work would do the job as well or better.'}
+    ]},
+  { k:'u', word:'Universal',
+    q:'Can every student get to it and through it?',
+    help:'Think about students who are absent, students with no device at home, and students whose accommodations are set up on one laptop.',
+    options:[
+      {v:2, t:'Yes, everyone', d:'It all happens in class, supports are ready, and nothing depends on a device at home.'},
+      {v:1, t:'Yes, with a backup', d:'I will have a print or offline path, or another way to show the learning.'},
+      {v:0, t:'No', d:'Some students would be shut out and I cannot cover the gap yet.'}
+    ]},
+  { k:'g', word:'Go time',
+    q:'Is the learning worth the minutes it takes to get going?',
+    help:'Count passing out, logging in, the dead battery, and plugging everything back in. That can be 10 minutes.',
+    options:[
+      {v:2, t:'Yes', d:'Students will use the devices for most of the block, or our routine is fast.'},
+      {v:1, t:'Yes, if I batch it', d:'Worth it as one longer stretch, one day a week, or one station in a rotation.'},
+      {v:0, t:'No', d:'A few minutes of use is not worth the setup.'}
+    ]}
+];
+const VERDICTS = {
+  plug:  {name:'Plug in', line:'The tech earns its place in this lesson. Use it on purpose.'},
+  blend: {name:'Blend',   line:'Start off-screen, then plug in for the part where the tech helps.'},
+  unplug:{name:'Unplug',  line:'This one will work better off-screen today.'}
+};
+const TIPS = {
+  plug:[
+    'Tell students why the devices are out today and what they are for.',
+    'Teach the skill, not just the app: formatting a paper, finding a saved file, building a spreadsheet.',
+    'Use one start-and-stop routine for the cart so setup stays short.',
+    'Remember that tech is more than laptops. Robots, drones, and microscopes count too.'
+  ],
+  l1:'Plan on paper, publish on screen. Students brainstorm and draft by hand, then type the final version.',
+  u1:'Print the backup before class, and pair each online task with a paper path for students who are out.',
+  u1b:'Offer more than one way to show learning: a poster, a model, an interview, a presentation.',
+  g1:'Batch device time into one longer stretch, or run laptops as one station so only a few students log in at a time.',
+  l0:'Try a gallery walk, centers, or a face-to-face discussion. Students get up, move, and talk.',
+  l0b:'Have students do the thinking on paper. You will see more of their reasoning on the page.',
+  u0:'Fix access first. Survey families about devices and internet at home, and ask who can set up accommodations on the shared laptops.',
+  u0b:'Until then, run it on paper so no one is shut out.',
+  g0:'Save the cart for a day when students will use the devices for most of the block.',
+  off:'Go offline on purpose: the school garden, a visiting expert, reading stories to another class.'
+};
+
+const state = {i:-1, lesson:'', goal:'', a:{}, nudge:false};
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dot = v => `<i class="dot ${v===2?'full':v===1?'half':''}" aria-hidden="true"></i>`;
+
+function verdict(){
+  const {l,u,g} = state.a;
+  if(l===0 || u===0 || g===0) return 'unplug';
+  if(l===2 && u===2 && g===2) return 'plug';
+  return 'blend';
+}
+function tips(v){
+  const {l,u,g} = state.a, out = [];
+  if(v==='plug') return TIPS.plug;
+  if(v==='blend'){
+    if(l===1) out.push(TIPS.l1);
+    if(u===1) out.push(TIPS.u1, TIPS.u1b);
+    if(g===1) out.push(TIPS.g1);
+    out.push(TIPS.plug[0]);
+    return out;
+  }
+  if(l===0) out.push(TIPS.l0, TIPS.l0b);
+  if(u===0) out.push(TIPS.u0, TIPS.u0b);
+  if(g===0) out.push(TIPS.g0);
+  if(l!==0 && out.length < 3) out.push(TIPS.l1);
+  out.push(TIPS.off);
+  return out;
+}
+function rail(){
+  $('#rail').innerHTML = STEPS.map((s,n) => {
+    const cls = n===state.i ? 'now' : (s.k in state.a && n<state.i || state.i>=STEPS.length) ? 'done' : '';
+    return `<li class="${cls}" data-k="${s.k}"><div class="badge">${s.k.toUpperCase()}</div><span>${s.word}</span></li>`;
+  }).join('');
+}
+function render(focus){
+  rail();
+  const stage = $('#stage');
+  if(state.i < 0){
+    stage.innerHTML = `<div class="step">
+      <h3>What are you planning?</h3>
+      <p class="help">Name the lesson or activity. This is optional, and it shows up on your printed check.</p>
+      <label class="field"><span>Lesson or activity</span><input id="lesson" maxlength="90" placeholder="Example: Argument essay, day 2" value="${esc(state.lesson)}"></label>
+      <div class="row"><button class="btn primary" id="go">Start the check</button></div>
+    </div>`;
+    $('#go').onclick = () => { state.lesson = $('#lesson').value.trim(); state.i = 0; render(true); };
+    $('#lesson').onkeydown = e => { if(e.key==='Enter') $('#go').click(); };
+    return;
+  }
+  if(state.i >= STEPS.length){ return result(focus); }
+  const s = STEPS[state.i];
+  stage.innerHTML = `<div class="step">
+    <div class="step-top"><div class="badge b-${s.k}">${s.k.toUpperCase()}</div><div class="word">${s.word} · Question ${state.i+1} of 4</div></div>
+    <h3 tabindex="-1" id="q">${s.q}</h3>
+    <p class="help">${s.help}</p>
+    ${s.k==='p' && state.nudge ? `<div class="nudge">
+        <p><strong>Write the goal first.</strong> Finish the sentence, then keep going. If the tech still fits, the next three questions will show it.</p>
+        <label class="field"><span>Students will be able to...</span><input id="goal" maxlength="140" value="${esc(state.goal)}"></label>
+        <button class="btn dark" id="goal-ok">I have my goal. Keep going</button>
+      </div>` :
+      `<div class="choices">${s.options.map((o,n) => `<button class="choice" data-n="${n}">${s.k==='p'?'':dot(o.v)}<div><b>${o.t}</b><span>${o.d}</span></div></button>`).join('')}</div>`}
+    <div class="row"><button class="btn link" id="back">Back</button></div>
+  </div>`;
+  stage.querySelectorAll('.choice').forEach(b => b.onclick = () => {
+    const o = s.options[+b.dataset.n];
+    if(s.k==='p' && o.v===0){ state.nudge = true; render(true); return; }
+    state.a[s.k] = o.v; state.i++; render(true);
+  });
+  if($('#goal-ok')){
+    $('#goal-ok').onclick = () => { state.goal = $('#goal').value.trim(); state.a.p = 2; state.nudge = false; state.i++; render(true); };
+    $('#goal').onkeydown = e => { if(e.key==='Enter') $('#goal-ok').click(); };
+  }
+  $('#back').onclick = () => {
+    if(state.nudge){ state.nudge = false; } else { state.i--; }
+    render(true);
+  };
+  if(focus) $('#q').focus({preventScroll:true});
+}
+function summaryText(v){
+  const lines = ['PLUG Check' + (state.lesson ? ': ' + state.lesson : '')];
+  if(state.goal) lines.push('Goal: Students will be able to ' + state.goal);
+  STEPS.forEach(s => { const o = s.options.find(o => o.v===state.a[s.k]); lines.push(s.word + ': ' + o.t); });
+  lines.push('Call: ' + VERDICTS[v].name.toUpperCase() + '. ' + VERDICTS[v].line);
+  tips(v).forEach(t => lines.push('- ' + t));
+  return lines.join('\n');
+}
+function result(focus){
+  const v = verdict(), V = VERDICTS[v];
+  $('#stage').innerHTML = `<div class="result">
+    <div class="verdict ${v}">
+      <div class="for">${state.lesson ? esc(state.lesson) : 'Your lesson'}</div>
+      <h3 tabindex="-1" id="q">${V.name}</h3>
+      <p>${V.line}</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h4>Your answers</h4>
+        <ul class="path">${STEPS.map(s => { const o = s.options.find(o => o.v===state.a[s.k]);
+          const d = s.k==='p' && state.goal ? 'Students will be able to ' + esc(state.goal) : o.d;
+          return `<li><div class="badge b-${s.k}">${s.k.toUpperCase()}</div><div><b>${s.word}: ${o.t}</b><span>${d}</span></div></li>`; }).join('')}</ul>
+      </div>
+      <div>
+        <h4>Moves to try</h4>
+        <ul class="tips">${tips(v).map(t => `<li>${t}</li>`).join('')}</ul>
+      </div>
+    </div>
+    <div class="row no-print">
+      <button class="btn primary" id="again">Check another lesson</button>
+      <button class="btn" id="print">Print this check</button>
+      <button class="btn" id="copy">Copy summary</button>
+      <button class="btn link" id="back">Change an answer</button>
+    </div>
+    <p class="print-only">The PLUG Check: Purpose, Lift, Universal, Go time. Inspired by Mary Mitchelson, "Adapting Instruction as 1:1 Technology Access Shrinks," Edutopia, 2026.</p>
+  </div>`;
+  $('#again').onclick = () => { Object.assign(state, {i:-1, lesson:'', goal:'', a:{}, nudge:false}); render(); $('#lesson').focus(); };
+  $('#print').onclick = () => window.print();
+  $('#back').onclick = () => { state.i = 1; render(true); };
+  $('#copy').onclick = async () => {
+    const b = $('#copy');
+    try{ await navigator.clipboard.writeText(summaryText(v)); b.textContent = 'Copied'; }
+    catch(e){ b.textContent = 'Copy not available'; }
+    setTimeout(() => b.textContent = 'Copy summary', 1600);
+  };
+  if(focus) $('#q').focus({preventScroll:true});
+}
+render();
+</script>
+</body>
+</html>

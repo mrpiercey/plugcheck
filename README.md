@@ -1,20 +1,22 @@
 # The PLUG Check
 
-**Plug in, blend, or unplug?** Four quick questions that help teachers decide when classroom tech is worth it, built for schools where one-to-one devices are shrinking to a shared cart.
+**Plug in, blend, or unplug?** Four quick questions that help **elementary teachers** decide when classroom tech is worth it.
 
 **Live:** https://mrpiercey.github.io/plugcheck/
 **Printable:** [PLUG-Check.pdf](PLUG-Check.pdf) (2 pages, US Letter)
 
-Inspired by Mary Mitchelson's Edutopia article, [Adapting Instruction as 1:1 Technology Access Shrinks](https://www.edutopia.org/article/adapting-less-tech-access-schools) (November 10, 2026).
+Inspired by Mary Mitchelson's Edutopia article, [Adapting Instruction as 1:1 Technology Access Shrinks](https://www.edutopia.org/article/adapting-less-tech-access-schools) (November 10, 2026), which is written from a middle school classroom. This tool is adapted for elementary, where tech use looks very different: centers and rotations, logins small hands can't manage yet, students who are still learning to read and write, and a room full of manipulatives, books, and pencils that often teach better.
 
 ## The mnemonic
 
 | | Ask | Research behind it |
 |---|---|---|
-| **P** Purpose | Can you name the learning goal without naming a tool? | Backward design (Wiggins & McTighe, 2005); TPACK (Mishra & Koehler, 2006) |
-| **L** Lift | What does the tech add that paper and talk can't? | SAMR (Puentedura, 2006); PICRAT (Kimmons, Graham & West, 2020); Triple E (Kolb, 2017); OECD (2015); Delgado et al. (2018) |
-| **U** Universal | Can every student get to it and through it? | UDL Guidelines 3.0 (CAST, 2024); Pew Research Center (Anderson & Perrin, 2018) |
-| **G** Go time | Is the learning worth the minutes it takes to get going? | Mitchelson (2026); ICAP (Chi & Wylie, 2014) |
+| **P** Purpose | Can you name the learning goal without naming an app? | Backward design (Wiggins & McTighe, 2005); TPACK (Mishra & Koehler, 2006) |
+| **L** Lift | What does the tech add that hands, books, and talk can't? | Four pillars of educational apps (Hirsh-Pasek et al., 2015); manipulatives (Carbonneau et al., 2013); handwriting (James & Engelhardt, 2012); paper vs. screen storybooks (Furenes et al., 2021) |
+| **U** Universal | Can every student do it on their own? | UDL Guidelines 3.0 (CAST, 2024); NAEYC & Fred Rogers Center (2012) |
+| **G** Go time | Is the learning worth the minutes it takes to get going? | Short elementary blocks; AAP (2016) on balancing media use |
+
+**Grade bands.** The app asks whether the lesson is for K-2 or 3-5 and changes its examples and suggested moves to match. All band-specific wording lives in the `STEPS` and `TIPS` objects in `index.html` as `{k2:'...', g35:'...'}`.
 
 **How the call is made**
 

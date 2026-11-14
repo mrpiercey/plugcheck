@@ -13,7 +13,7 @@ Inspired by Mary Mitchelson's Edutopia article, [Adapting Instruction as 1:1 Tec
 |---|---|---|
 | **P** Purpose | Can you name the learning goal without naming an app? | Backward design (Wiggins & McTighe, 2005); TPACK (Mishra & Koehler, 2006) |
 | **L** Leverage | What can students do with the tech that they can't do without it? | Four pillars of educational apps (Hirsh-Pasek et al., 2015); manipulatives (Carbonneau et al., 2013); handwriting (James & Engelhardt, 2012); paper vs. screen storybooks (Furenes et al., 2021) |
-| **U** Universal | Can every student do it on their own? | UDL Guidelines 3.0 (CAST, 2024); NAEYC & Fred Rogers Center (2012) |
+| **U** Universal | Can every student do it with minimal assistance from the teacher? | UDL Guidelines 3.0 (CAST, 2024); NAEYC & Fred Rogers Center (2012) |
 | **G** Groundwork | Is the learning worth the minutes it takes to set up? | Short elementary blocks; AAP (2016) on balancing media use |
 
 **Grade bands.** The app asks whether the lesson is for K-2 or 3-5 and changes its examples and suggested moves to match. All band-specific wording lives in the `STEPS` and `TIPS` objects in `index.html` as `{k2:'...', g35:'...'}`.

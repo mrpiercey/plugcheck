@@ -12,7 +12,7 @@ Inspired by Mary Mitchelson's Edutopia article, [Adapting Instruction as 1:1 Tec
 | | Ask | Research behind it |
 |---|---|---|
 | **P** Purpose | Can you name the learning goal without naming an app? | Backward design (Wiggins & McTighe, 2005); TPACK (Mishra & Koehler, 2006) |
-| **L** Lift | What does the tech add that hands, books, and talk can't? | Four pillars of educational apps (Hirsh-Pasek et al., 2015); manipulatives (Carbonneau et al., 2013); handwriting (James & Engelhardt, 2012); paper vs. screen storybooks (Furenes et al., 2021) |
+| **L** Leverage | What does the tech add that hands, books, and talk can't? | Four pillars of educational apps (Hirsh-Pasek et al., 2015); manipulatives (Carbonneau et al., 2013); handwriting (James & Engelhardt, 2012); paper vs. screen storybooks (Furenes et al., 2021) |
 | **U** Universal | Can every student do it on their own? | UDL Guidelines 3.0 (CAST, 2024); NAEYC & Fred Rogers Center (2012) |
 | **G** Go time | Is the learning worth the minutes it takes to get going? | Short elementary blocks; AAP (2016) on balancing media use |
 
@@ -20,8 +20,8 @@ Inspired by Mary Mitchelson's Edutopia article, [Adapting Instruction as 1:1 Tec
 
 **How the call is made**
 
-- **Plug in** if Lift, Universal, and Go time are all a strong yes.
-- **Unplug** if Lift is "nothing new," or if Universal and Go time are both a flat no.
+- **Plug in** if Leverage, Universal, and Go time are all a strong yes.
+- **Unplug** if Leverage is "nothing new," or if Universal and Go time are both a flat no.
 - **Blend** for everything else. Blend is the default and where most lessons land.
 
 Purpose never sends a lesson to Unplug. A "not yet" just asks the teacher to write the goal first.

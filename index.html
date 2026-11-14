@@ -183,7 +183,7 @@ footer{padding:26px 0 44px; font-size:13.5px; color:#3b4660}
     <p class="lead">In an elementary classroom, tech shares the room with blocks, books, pencils, and the carpet. Run a lesson through four quick questions to decide when a screen is worth it.</p>
     <ul class="letters">
       <li><div class="badge b-p">P</div><h3>Purpose</h3><p>Can you name the learning goal without naming an app?</p></li>
-      <li><div class="badge b-l">L</div><h3>Lift</h3><p>What does the tech add that hands, books, and talk can't?</p></li>
+      <li><div class="badge b-l">L</div><h3>Leverage</h3><p>What does the tech add that hands, books, and talk can't?</p></li>
       <li><div class="badge b-u">U</div><h3>Universal</h3><p>Can every student do it on their own?</p></li>
       <li><div class="badge b-g">G</div><h3>Go time</h3><p>Is the learning worth the minutes it takes to get going?</p></li>
     </ul>
@@ -217,7 +217,7 @@ footer{padding:26px 0 44px; font-size:13.5px; color:#3b4660}
         <div class="f-side r3"><em>Not yet</em></div>
         <div class="f-note r3">Write the goal first. Then keep going.</div>
         <div class="f-down r4"><em>Yes</em></div>
-        <div class="f-q l r5"><b class="f-l">L</b><div><strong>Lift</strong><span>What does the tech add that hands, books, and talk can't?</span></div></div>
+        <div class="f-q l r5"><b class="f-l">L</b><div><strong>Leverage</strong><span>What does the tech add that hands, books, and talk can't?</span></div></div>
         <div class="f-side r5"><em>Nothing new</em></div>
         <div class="f-out unplug"><i>Tech adds nothing</i><b>Unplug</b><small>Use hands, books, and talk. Also unplug if U and G are both a flat no.</small></div>
         <div class="f-down r6"><em>Something new, or speed and polish</em></div>
@@ -250,7 +250,7 @@ footer{padding:26px 0 44px; font-size:13.5px; color:#3b4660}
         <p>Backward design starts with what students should understand, then picks the activity (Wiggins &amp; McTighe, 2005). In elementary rooms the risk is "app time" becoming the lesson. TPACK makes the same point: good tech use depends on its fit with the content and the teaching (Mishra &amp; Koehler, 2006).</p>
       </article>
       <article>
-        <div class="top"><div class="badge b-l">L</div><h3>Lift</h3></div>
+        <div class="top"><div class="badge b-l">L</div><h3>Leverage</h3></div>
         <p>Apps teach best when children are active, engaged, working with meaningful content, and interacting with others (Hirsh-Pasek et al., 2015). Hands still matter. A meta-analysis of 55 studies found that concrete manipulatives help math learning (Carbonneau et al., 2013). In a brain-imaging study of pre-readers, printing letters by hand activated the brain's reading network, and typing or tracing them did not (James &amp; Engelhardt, 2012). For children ages 1 to 8, plain digital storybooks led to lower comprehension than paper, while digital books with story-related enhancements did better (Furenes et al., 2021).</p>
       </article>
       <article>
@@ -294,7 +294,7 @@ const STEPS = [
       {v:2, t:'Yes, the goal is clear', d:'I can say what students will know or be able to do.'},
       {v:0, t:'Not yet', d:'Right now the plan starts with the app or the device.'}
     ]},
-  { k:'l', word:'Lift',
+  { k:'l', word:'Leverage',
     q:'What does the tech add that hands, books, and talk can\'t?',
     help:{k2:'Young children learn by touching, moving, drawing, and talking. Compare the screen with the best hands-on version of this lesson.',
           g35:'Compare the screen with the best paper, hands-on, or discussion version of this lesson.'},
@@ -488,7 +488,7 @@ function result(focus){
       <button class="btn" id="copy">Copy summary</button>
       <button class="btn link" id="back">Change an answer</button>
     </div>
-    <p class="print-only">The PLUG Check for elementary classrooms: Purpose, Lift, Universal, Go time. Inspired by Mary Mitchelson, "Adapting Instruction as 1:1 Technology Access Shrinks," Edutopia, 2026.</p>
+    <p class="print-only">The PLUG Check for elementary classrooms: Purpose, Leverage, Universal, Go time. Inspired by Mary Mitchelson, "Adapting Instruction as 1:1 Technology Access Shrinks," Edutopia, 2026.</p>
   </div>`;
   $('#again').onclick = () => { Object.assign(state, {i:-1, lesson:'', band:'', goal:'', a:{}, nudge:false}); render(); $('#lesson').focus(); };
   $('#print').onclick = () => window.print();

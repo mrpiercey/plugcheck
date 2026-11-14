@@ -185,7 +185,7 @@ footer{padding:26px 0 44px; font-size:13.5px; color:#3b4660}
       <li><div class="badge b-p">P</div><h3>Purpose</h3><p>Can you name the learning goal without naming an app?</p></li>
       <li><div class="badge b-l">L</div><h3>Leverage</h3><p>What does the tech add that hands, books, and talk can't?</p></li>
       <li><div class="badge b-u">U</div><h3>Universal</h3><p>Can every student do it on their own?</p></li>
-      <li><div class="badge b-g">G</div><h3>Go time</h3><p>Is the learning worth the minutes it takes to get going?</p></li>
+      <li><div class="badge b-g">G</div><h3>Groundwork</h3><p>Is the learning worth the minutes it takes to set up?</p></li>
     </ul>
   </div>
 </div>
@@ -219,19 +219,21 @@ footer{padding:26px 0 44px; font-size:13.5px; color:#3b4660}
         <div class="f-down r4"><em>Yes</em></div>
         <div class="f-q l r5"><b class="f-l">L</b><div><strong>Leverage</strong><span>What does the tech add that hands, books, and talk can't?</span></div></div>
         <div class="f-side r5"><em>Nothing new</em></div>
-        <div class="f-out unplug"><i>Tech adds nothing</i><b>Unplug</b><small>Use hands, books, and talk. Also unplug if U and G are both a flat no.</small></div>
+        <div class="f-out unplug"><i>Stop here</i><b>Unplug</b><small>The tech adds nothing. Use hands, books, and talk.</small></div>
         <div class="f-down r6"><em>Something new, or speed and polish</em></div>
         <div class="f-q u r7"><b class="f-l">U</b><div><strong>Universal</strong><span>Can every student do it on their own?</span></div></div>
         <div class="f-side r7"><em>No, or with help</em></div>
-        <div class="f-note r7">Plan a buddy, picture directions, or do it together first.</div>
-        <div class="f-down r8"></div>
-        <div class="f-q g r9"><b class="f-l">G</b><div><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></div></div>
+        <div class="f-note r7"><span><b>Try:</b> a buddy, picture directions, or doing it together first.</span></div>
+        <div class="f-down r8"><em>Either way, keep going</em></div>
+        <div class="f-q g r9"><b class="f-l">G</b><div><strong>Groundwork</strong><span>Is the learning worth the setup minutes?</span></div></div>
         <div class="f-side r9"><em>No, or sort of</em></div>
-        <div class="f-note r9">Make it one station, or save it for a longer block.</div>
-        <div class="f-down r10"></div>
-        <div class="f-ends r11">
-          <div class="f-out plug"><i>Three strong yeses</i><b>Plug in</b><small>The tech earns its place. Use it on purpose.</small></div>
-          <div class="f-out blend"><i>Everything else</i><b>Blend</b><small>Most lessons land here. Hands first, then screens for the part where tech helps.</small></div>
+        <div class="f-note r9"><span><b>Try:</b> one station, or save it for a longer block.</span></div>
+        <div class="f-down r10"><em>Either way, keep going</em></div>
+        <div class="f-tally r11">Look back at your answers to L, U, and G.</div>
+        <div class="f-ends r12">
+          <div class="f-out plug"><i>All three a strong yes</i><b>Plug in</b><small>The tech earns its place. Use it on purpose.</small></div>
+          <div class="f-out blend"><i>A mix of answers</i><b>Blend</b><small>Most lessons land here. Hands first, then screens where the tech helps.</small></div>
+          <div class="f-out unplug"><i>U and G both a no</i><b>Unplug</b><small>Too much waiting and setup today. Use hands, books, and talk.</small></div>
         </div>
       </div>
     </div>
@@ -258,7 +260,7 @@ footer{padding:26px 0 44px; font-size:13.5px; color:#3b4660}
         <p>Universal Design for Learning asks teachers to plan more than one way in and more than one way to show learning (CAST, 2024). This is where tech can shine for young children: read-aloud, pictures, and voice recording let a student who cannot yet read or write fluently show what they know. NAEYC and the Fred Rogers Center (2012) say technology for children through age 8 should be chosen intentionally, fit their development, and stay interactive, not passive.</p>
       </article>
       <article>
-        <div class="top"><div class="badge b-g">G</div><h3>Go time</h3></div>
+        <div class="top"><div class="badge b-g">G</div><h3>Groundwork</h3></div>
         <p>Elementary blocks are short. In a 20-minute rotation, 5 minutes of carrying devices, logging in, and finding headphones is a quarter of the time. Minutes also add up across a child's day. The American Academy of Pediatrics (2016) sets no single screen-time number for school-age children and instead recommends balancing media with sleep, physical activity, and screen-free time.</p>
       </article>
     </div>
@@ -322,8 +324,8 @@ const STEPS = [
           g35:'With a partner, a checklist, or a quick model first.'}},
       {v:0, t:'Not as planned', d:'Too many students would be stuck waiting for me.'}
     ]},
-  { k:'g', word:'Go time',
-    q:'Is the learning worth the minutes it takes to get going?',
+  { k:'g', word:'Groundwork',
+    q:'Is the learning worth the minutes it takes to set up?',
     help:{k2:'Count carrying devices, logging in, headphones, and putting everything back. In a 15-minute center, 5 minutes of setup is a third of the time.',
           g35:'Count passing out, logging in, headphones, the dead battery, and plugging everything back in. In a 20-minute rotation, 5 minutes is a quarter of the time.'},
     options:[
@@ -488,7 +490,7 @@ function result(focus){
       <button class="btn" id="copy">Copy summary</button>
       <button class="btn link" id="back">Change an answer</button>
     </div>
-    <p class="print-only">The PLUG Check for elementary classrooms: Purpose, Leverage, Universal, Go time. Inspired by Mary Mitchelson, "Adapting Instruction as 1:1 Technology Access Shrinks," Edutopia, 2026.</p>
+    <p class="print-only">The PLUG Check for elementary classrooms: Purpose, Leverage, Universal, Groundwork. Inspired by Mary Mitchelson, "Adapting Instruction as 1:1 Technology Access Shrinks," Edutopia, 2026.</p>
   </div>`;
   $('#again').onclick = () => { Object.assign(state, {i:-1, lesson:'', band:'', goal:'', a:{}, nudge:false}); render(); $('#lesson').focus(); };
   $('#print').onclick = () => window.print();

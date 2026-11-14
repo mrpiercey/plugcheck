@@ -33,10 +33,11 @@ p{margin:0}
 .bp{background:#4FD2FF}.bl{background:#A973DF}.bu{background:#2AD2C9}.bg{background:#FFBC0D}
 
 h2{font-size:16pt; margin-bottom:.09in}
-.flow{font-size:10pt}
+.flow{font-size:9.6pt}
 .page > *{flex-shrink:0}
-.flow .f-down{height:1.9em}
-.flow .f-ends{gap:.14in}
+.flow .f-down{height:1.7em}
+.flow .f-ends{gap:.1in; padding:.09in}
+.flow .f-out{padding:.5em .9em}
 
 .foot{margin-top:auto; padding-top:.1in; font-size:7.3pt; color:#444; display:flex; justify-content:space-between; gap:.3in; align-items:flex-end}
 
@@ -94,7 +95,7 @@ tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; backgr
     <div><b class="bp">P</b><h3>Purpose</h3><p>Start with the learning goal, not the app. "15 minutes on the math app" is a tool. "Count on from any number" is a goal.</p></div>
     <div><b class="bl">L</b><h3>Leverage</h3><p>Ask what the tech adds that hands can't: recording thinking, hearing a book read aloud, practice at each child's level.</p></div>
     <div><b class="bu">U</b><h3>Universal</h3><p>Check that every student can do it alone: logging in, following directions, getting unstuck while you teach a small group.</p></div>
-    <div><b class="bg">G</b><h3>Go time</h3><p>Count the setup minutes. In a 20-minute rotation, 5 minutes of logins and headphones is a quarter of the time.</p></div>
+    <div><b class="bg">G</b><h3>Groundwork</h3><p>Count the setup minutes. In a 20-minute rotation, 5 minutes of logins and headphones is a quarter of the time.</p></div>
   </div>
 
   <h2>Follow the flowchart</h2>
@@ -107,20 +108,22 @@ tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; backgr
     <div class="f-down r4"><em>Yes</em></div>
     <div class="f-q l r5"><b class="f-l">L</b><div><strong>Leverage</strong><span>What does the tech add that hands, books, and talk can't?</span></div></div>
     <div class="f-side r5"><em>Nothing new</em></div>
-    <div class="f-out unplug"><i>Tech adds nothing</i><b>Unplug</b><small>Use hands, books, and talk. Also unplug if U and G are both a flat no.</small></div>
+    <div class="f-out unplug"><i>Stop here</i><b>Unplug</b><small>The tech adds nothing. Use hands, books, and talk.</small></div>
     <div class="f-down r6"><em>Something new, or speed and polish</em></div>
     <div class="f-q u r7"><b class="f-l">U</b><div><strong>Universal</strong><span>Can every student do it on their own?</span></div></div>
     <div class="f-side r7"><em>No, or with help</em></div>
-    <div class="f-note r7">Plan a buddy, picture directions, or do it together first.</div>
-    <div class="f-down r8"></div>
-    <div class="f-q g r9"><b class="f-l">G</b><div><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></div></div>
+    <div class="f-note r7"><span><b>Try:</b> a buddy, picture directions, or doing it together first.</span></div>
+    <div class="f-down r8"><em>Either way, keep going</em></div>
+    <div class="f-q g r9"><b class="f-l">G</b><div><strong>Groundwork</strong><span>Is the learning worth the setup minutes?</span></div></div>
     <div class="f-side r9"><em>No, or sort of</em></div>
-    <div class="f-note r9">Make it one station, or save it for a longer block.</div>
-    <div class="f-down r10"></div>
-    <div class="f-ends r11">
-      <div class="f-out plug"><i>Three strong yeses</i><b>Plug in</b><small>The tech adds something new, students can run it alone, and the minutes are worth it.</small></div>
-      <div class="f-out blend"><i>Everything else</i><b>Blend</b><small>Most lessons land here. Hands first, then screens for the part where the tech helps.</small></div>
-    </div>
+    <div class="f-note r9"><span><b>Try:</b> one station, or save it for a longer block.</span></div>
+    <div class="f-down r10"><em>Either way, keep going</em></div>
+    <div class="f-tally r11">Look back at your answers to L, U, and G.</div>
+        <div class="f-ends r12">
+          <div class="f-out plug"><i>All three a strong yes</i><b>Plug in</b><small>Something new, on their own, and worth the minutes.</small></div>
+          <div class="f-out blend"><i>A mix of answers</i><b>Blend</b><small>Most lessons land here. Hands first, then screens where the tech helps.</small></div>
+          <div class="f-out unplug"><i>U and G both a no</i><b>Unplug</b><small>Too much waiting and setup today. Use hands, books, and talk.</small></div>
+        </div>
   </div>
 
   <div class="foot">
@@ -164,7 +167,7 @@ tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; backgr
     </tr>
     <tr>
       <td class="k"><b class="bg">G</b></td>
-      <td class="q"><strong>Go time</strong><span>Is the learning worth the setup minutes?</span></td>
+      <td class="q"><strong>Groundwork</strong><span>Is the learning worth the setup minutes?</span></td>
       <td class="c"><label><i class="box"></i>Yes</label><label><i class="box"></i>Yes, if I batch it</label><label><i class="box"></i>Not as planned</label></td>
       <td class="n"></td>
     </tr>
@@ -199,7 +202,7 @@ tr.call td{border-top:2pt solid #1D2A44; border-bottom:2pt solid #1D2A44; backgr
     <p><b>Purpose.</b> Backward design starts with what students should understand, then picks the activity (Wiggins &amp; McTighe, 2005). It keeps "app time" from becoming the lesson.</p>
     <p><b>Leverage.</b> Apps teach best when children are active, engaged, and working with others (Hirsh-Pasek et al., 2015). Hands still matter: manipulatives help math learning (Carbonneau et al., 2013), and in pre-readers, printing letters by hand engaged the brain's reading network in ways typing did not (James &amp; Engelhardt, 2012).</p>
     <p><b>Universal.</b> Universal Design for Learning calls for more than one way in and more than one way to show learning (CAST, 2024). Read-aloud, pictures, and voice recording let children who are still learning to read and write show what they know.</p>
-    <p><b>Go time.</b> Elementary blocks are short, so setup minutes cost more. The American Academy of Pediatrics (2016) sets no single screen-time number for school-age children and recommends balancing media with sleep, activity, and screen-free time.</p>
+    <p><b>Groundwork.</b> Elementary blocks are short, so setup minutes cost more. The American Academy of Pediatrics (2016) sets no single screen-time number for school-age children and recommends balancing media with sleep, activity, and screen-free time.</p>
   </div>
   <div class="refs">
     <strong>Sources:</strong> American Academy of Pediatrics (2016), "Media Use in School-Aged Children and Adolescents," <em>Pediatrics, 138</em>(5) · Carbonneau, Marley &amp; Selig (2013), <em>Journal of Educational Psychology, 105</em>(2) · CAST (2024), <em>UDL Guidelines 3.0</em> · Furenes, Kucirkova &amp; Bus (2021), <em>Review of Educational Research, 91</em>(4) · Hirsh-Pasek et al. (2015), <em>Psychological Science in the Public Interest, 16</em>(1) · James &amp; Engelhardt (2012), <em>Trends in Neuroscience and Education, 1</em>(1) · Mitchelson (2026), <em>Edutopia</em> · NAEYC &amp; Fred Rogers Center (2012), <em>Technology and Interactive Media as Tools in Early Childhood Programs</em> · Wiggins &amp; McTighe (2005), <em>Understanding by Design</em>. PLUG is a planning habit built on this research; it has not been tested as a program on its own.
